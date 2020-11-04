@@ -19,7 +19,7 @@ function TinderCards(props) {
         }
 
         fetchData().then(r => console.log("working!"))
-            .catch()
+            .catch( err => console.log(err))
     },[])
 
     const swiped = (direction, nameToDelete) => {
