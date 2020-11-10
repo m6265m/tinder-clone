@@ -7,6 +7,9 @@ function TinderCards(props) {
 
     const [people, setPeople] = useState([])
 
+    //GOOD way to push to an array in react
+    // setPeople([...people,'sohail', 'sarah'])
+
     useEffect(() => {
 
         //here we are using the new way/ async way to get the datat from the api and

@@ -3,19 +3,38 @@ import './App.css';
 import Header from "./Header";
 import TinderCards from "./TinderCards";
 import SwipeButtons from "./SwipeButtons";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Chats from "./Chats";
+import ChatScreen from "./ChatScreen";
+
 
 function App() {
-  return (
-      //BEM class naming convention
-    <div className="app">
-    {/*    Header component*/}
-    <Header/>
-    {/*Tinder Cards component*/}
-    <TinderCards/>
-    {/*Swipe Buttons component*/}
-    <SwipeButtons/>
-    </div>
-  );
+    return (
+        //BEM class naming convention
+        <div className="app">
+
+            <Router>
+                <Switch>
+                    <Route path="/chats/:person">
+                        <Header backButton={"/chats"}/>
+                        <ChatScreen/>
+                    </Route>
+                    <Route path="/chats">
+                        <Header backButton={"/"}/>
+                        <Chats/>
+                    </Route>
+                    <Route path="/">
+                        <Header />
+                        <TinderCards/>
+                        <SwipeButtons/>
+                    </Route>
+
+                </Switch>
+
+            </Router>
+
+        </div>
+    );
 }
 
 export default App;
